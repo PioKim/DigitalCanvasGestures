@@ -423,16 +423,6 @@ void ofApp::draw(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // screenSaver();// screen saver
     
     ofPushStyle();
@@ -441,23 +431,6 @@ void ofApp::draw(){
     
     ofRectangle(hand1pos.x, hand1pos.y, w, h);
     ofPopStyle();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -487,7 +460,7 @@ void ofApp::screenSaver(){
     
     interactionTime = ofGetElapsedTimef();
     
-    
+    float time = ofGetElapsedTimef();
     
     
     
@@ -510,12 +483,8 @@ void ofApp::screenSaver(){
         y1 += ofRandom(0, 2) - 1;// this control y moving and speed
         
         
-        x2 = 1000+220*sin(ofGetElapsedTimef()/5.0f);// this control x moving and speed
-        y2 = 400+220*sin(ofGetElapsedTimef()/10.0f);// this control y moving and speed
-        
-        
-        
-        
+        x2 = 1000+220*sin(time/5.0f);// this control x moving and speed
+        y2 = 400+220*sin(time/10.0f);// this control y moving and speed
         
         ofCircle(x1,y1,20);
         
