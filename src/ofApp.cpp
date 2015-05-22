@@ -14,7 +14,7 @@ void ofApp::setup() {
     ofLogToConsole();
     //timer
     startTime = ofGetElapsedTimeMillis();
-     bTimerReached = false;
+    bTimerReached = false;
     
     //fbo
     maskFbo.allocate(resX,resY);
@@ -31,7 +31,7 @@ void ofApp::setup() {
     whiteBall.vx = ofRandom(-10,10);
     whiteBall.vy = ofRandom(-10,10);
     
-
+    
     y1 = 100;
     x1 = 100;
     y2 = 200;
@@ -263,7 +263,7 @@ void ofApp::update(){
     ofClear(0,0,0,255);
     maskFbo.end();
     
-
+    
     
     
     if(interacting){
@@ -317,7 +317,7 @@ void ofApp::update(){
     }
     
     
-   //yellow
+    //yellow
     if (yellowBall.x<0 || yellowBall.x > ofGetWidth()) {
         yellowBall.vx = -yellowBall.vx;
     }
@@ -325,7 +325,7 @@ void ofApp::update(){
     if (yellowBall.y<0 || yellowBall.y > ofGetHeight()) {
         yellowBall.vy = -yellowBall.vy;
     }
-
+    
     
     
     
@@ -399,7 +399,7 @@ void ofApp::draw(){
     float pct = ofMap(timer, 0.0, endTime, 0.0, 1.0, true);
     ofSetHexColor(0xf02589);
     ofRect((ofGetWidth()-barWidth)/8, ofGetHeight()/8, barWidth*pct, 30);//this
-
+    
     string  info = "Screen saverPercentage: "+ofToString(pct*100, 1)+"%\n";
     ofSetColor(255);
     ofDrawBitmapString(info, 20, 20);
@@ -409,8 +409,8 @@ void ofApp::draw(){
     
     screenSaver();
     
-
-
+    
+    
     
     // draw the playback video
     if(recordedVideoPlayback.isLoaded()){
@@ -433,7 +433,7 @@ void ofApp::draw(){
     
     
     
-   // screenSaver();// screen saver
+    // screenSaver();// screen saver
     
     ofPushStyle();
     ofNoFill();
@@ -484,7 +484,7 @@ void ofApp::exit(){
  */
 void ofApp::screenSaver(){
     float timer = ofGetElapsedTimeMillis() - startTime;
-
+    
     interactionTime = ofGetElapsedTimef();
     
     
@@ -496,45 +496,45 @@ void ofApp::screenSaver(){
     
     if(timer >= endTime ) {
         bTimerReached = true;
-
         
-//        float x1 =300+220*cos(ofGetElapsedTimef()/5.0f);// this control x moving and speed
-//        float y1 =400+220*cos(ofGetElapsedTimef()/4.2f);// this control y moving and speed
-
         
-       // float x2 = 1000+220*sin(ofGetElapsedTimef()/5.0f);// this control x moving and speed
-       // float y2 = 400+220*sin(ofGetElapsedTimef()/10.0f);// this control y moving and speed
+        //        float x1 =300+220*cos(ofGetElapsedTimef()/5.0f);// this control x moving and speed
+        //        float y1 =400+220*cos(ofGetElapsedTimef()/4.2f);// this control y moving and speed
         
-
+        
+        // float x2 = 1000+220*sin(ofGetElapsedTimef()/5.0f);// this control x moving and speed
+        // float y2 = 400+220*sin(ofGetElapsedTimef()/10.0f);// this control y moving and speed
+        
+        
         x1 += ofRandom(0, 2) - 1 ;// this control x moving and speed
         y1 += ofRandom(0, 2) - 1;// this control y moving and speed
         
         
-          x2 = 1000+220*sin(ofGetElapsedTimef()/5.0f);// this control x moving and speed
-          y2 = 400+220*sin(ofGetElapsedTimef()/10.0f);// this control y moving and speed
-
+        x2 = 1000+220*sin(ofGetElapsedTimef()/5.0f);// this control x moving and speed
+        y2 = 400+220*sin(ofGetElapsedTimef()/10.0f);// this control y moving and speed
+        
         
         
         
         
         ofCircle(x1,y1,20);
-
+        
         ofCircle(x2,y2,20);
         
         
         if(x2 != 0 && y2 !=0){
-        sw = round(x2 - x1);
+            sw = round(x2 - x1);
             
             
-        if(y1 > y2){ //
-            sh = round(y1 - y2);
+            if(y1 > y2){
+                sh = round(y1 - y2);
+            }
+            else
+            {
+                sh = round(y2 - y1);
+            }
         }
-        else
-        {
-            sh = round(y2 - y1);
-        }
-        }
-
+        
         maskFbo.begin();
         if(y1 < y2 ){
             ofRect(x1, y1, sw, sh);
@@ -552,14 +552,14 @@ void ofApp::screenSaver(){
         
         
         
-//        ofSetColor(255, 255, 0);
-//        ofCircle(yellowBall.x, yellowBall.y, 20);
-//        
-//        ofSetColor(255, 255, 255);
-//        ofCircle(whiteBall.x, whiteBall.y, 20);
+        //        ofSetColor(255, 255, 0);
+        //        ofCircle(yellowBall.x, yellowBall.y, 20);
+        //
+        //        ofSetColor(255, 255, 255);
+        //        ofCircle(whiteBall.x, whiteBall.y, 20);
+    }
 }
-}
-    
+
 
 
 
@@ -869,7 +869,7 @@ void ofApp::displayDebug(){
         
         
         
-       
+        
         
         
         if(w)
